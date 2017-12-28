@@ -21,14 +21,14 @@ def configuracionIndividuos():
     toolbox.register("population", 
                      tools.initRepeat, list, toolbox.individual)
     
-    pop = toolbox.population(n = 100)
+    pop = toolbox.population(n = 1000)
     
 def configuracionAlgoritmo_Experimento1():
     toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("mutate", tools.mutFlipBit, indpb=0.2)
     toolbox.register("select", tools.selTournament, tournsize=3)
     toolbox.register("evaluate", evaluate)
-    toolbox.decorate("evaluate", tools.DeltaPenalty(feasible, 7.0, distance))
+    toolbox.decorate("evaluate", tools.DeltaPenalty(feasible, 100000, distance))
 
 def configuracionAlgoritmo_Experimento2():
     toolbox.register("mate", tools.cxOnePoint)
@@ -57,7 +57,7 @@ def main():
     stats.register("std", np.std)
     stats.register("min", np.min)
     stats.register("max", np.max)
-    population1, logbook1 = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=50, stats=stats)
+    population1, logbook1 = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=5000, stats=stats)
 
     print(stats)
     print("La mejor solucion encontrada es: ")
