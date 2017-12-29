@@ -32,7 +32,7 @@ def evaluate(individual):
     for i in range(entrada_salida.n_caches):
         for j in range(entrada_salida.n_videos):
             if caches_usadas[i][j] == 0 and indi2[i][j] == 1:
-                score *= 10
+                score += 10000
 
     return score,   
 
@@ -43,14 +43,14 @@ def feasible(individual):
     indi = np.array(individual)
     indi2 = indi.reshape(entrada_salida.n_caches, entrada_salida.n_videos)
     tamanos = np.dot(indi2, entrada_salida.tamano_videos)
-    
+    sobrepeso = 0
     
     for i in tamanos:
         if i > entrada_salida.tamano_caches:
-            sobrepeso = i - entrada_salida.tamano_caches
+            sobrepeso += i - entrada_salida.tamano_caches
             flag = False
             
     return flag
 
 def distance(individual):
-	return sobrepeso * 10000
+	return sobrepeso * 100

@@ -57,11 +57,12 @@ def main():
     stats.register("std", np.std)
     stats.register("min", np.min)
     stats.register("max", np.max)
-    population1, logbook1 = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=5000, stats=stats)
+    population1, logbook1 = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=100, stats=stats)
 
     print(stats)
     print("La mejor solucion encontrada es: ")
     print(tools.selBest(population1, 1))
+    print(tools.selBest(population1, 1)[0].fitness.values)
     
     gen = logbook1.select("gen")
     avgs = logbook1.select("avg")
