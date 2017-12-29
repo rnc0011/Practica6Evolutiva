@@ -21,7 +21,7 @@ def configuracionIndividuos():
     toolbox.register("population", 
                      tools.initRepeat, list, toolbox.individual)
     
-    pop = toolbox.population(n = 1000)
+    pop = toolbox.population(n = 10000)
     
 def configuracionAlgoritmo_Experimento1():
     toolbox.register("mate", tools.cxOnePoint)
@@ -52,8 +52,8 @@ def main():
     entrada_salida.entrada(input_file)
     
     configuracionIndividuos()
-    
-    """ configuracionAlgoritmo_Experimento1()
+
+    configuracionAlgoritmo_Experimento1()
     stats1 = tools.Statistics(lambda ind: ind.fitness.values)
     stats1.register("avg", np.mean)
     stats1.register("std", np.std)
@@ -108,7 +108,7 @@ def main():
     ax1.set_ylabel("Fitness 2", color="b")
     
     plt.plot()
-    """
+
     #Tercer experimento
     configuracionAlgoritmo_Experimento3()
     stats3 = tools.Statistics(lambda ind: ind.fitness.values)
@@ -116,7 +116,7 @@ def main():
     stats3.register("std", np.std)
     stats3.register("min", np.min)
     stats3.register("max", np.max)
-    population3, logbook3 = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=500, stats=stats3)
+    population3, logbook3 = algorithms.eaSimple(pop, toolbox, cxpb=0.5, mutpb=0.2, ngen=200, stats=stats3)
 
     print(stats3)
     print("La mejor solucion encontrada es: ")

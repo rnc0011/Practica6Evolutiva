@@ -21,7 +21,7 @@ def configuracionIndividuos():
     toolbox.register("population", 
                      tools.initRepeat, list, toolbox.individual)
     
-    pop = toolbox.population(n = 200)
+    pop = toolbox.population(n = 500)
     
 def configuracionAlgoritmo_Experimento1():
     toolbox.register("mate", tools.cxUniform, indpb=0.2)
@@ -55,7 +55,7 @@ def main():
     stats.register("std", np.std)
     stats.register("min", np.min)
     stats.register("max", np.max)
-    population1, logbook1 = algorithms.eaMuPlusLambda(pop, toolbox, mu=160, lambda_=300, cxpb=0.5, mutpb=0.2, ngen=100, stats=stats)
+    population1, logbook1 = algorithms.eaMuPlusLambda(pop, toolbox, mu=400, lambda_=500, cxpb=0.5, mutpb=0.2, ngen=150, stats=stats)
 
     print(stats)
     print("La mejor solucion encontrada es: ")
