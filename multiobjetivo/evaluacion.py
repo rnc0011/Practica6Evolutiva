@@ -37,6 +37,6 @@ def evaluate(individual):
     for i in range(entrada_salida.n_caches):
         for j in range(entrada_salida.n_videos):
             if caches_usadas[i][j] == 0 and indi2[i][j] == 1:
-                score *= 10
+                score += 10000
 
-    return score, sobrepeso  
+    return score,sobrepeso

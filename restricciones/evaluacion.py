@@ -53,4 +53,4 @@ def feasible(individual):
     return flag
 
 def distance(individual):
-	return sobrepeso * 100
+	return sobrepeso * 100000
