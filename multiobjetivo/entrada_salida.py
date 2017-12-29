@@ -57,9 +57,9 @@ def entrada(fichero_entrada):
         latencias.append(dict())
         caches = matriz[2 + i + caches_totales][1]
         latencias[i][-1] = matriz[2 + i + caches_totales][0]
-        caches_totales += caches
         for j in range(caches):
-            latencias[i][matriz[3 + i + j][0]] = matriz[3 + i + j][1]
+            latencias[i][matriz[3 + i + j + caches_totales][0]] = matriz[3 + i + j + caches_totales][1]
+        caches_totales += caches    
            
     for i in range(endpoints):
         peticiones.append(list())
