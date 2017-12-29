@@ -28,14 +28,14 @@ def configuracionAlgoritmo_Experimento1():
     toolbox.register("mutate", tools.mutFlipBit, indpb=0.2)
     toolbox.register("select", tools.selTournament, tournsize=3)
     toolbox.register("evaluate", evaluate)
-    toolbox.decorate("evaluate", tools.DeltaPenalty(feasible, 100000, distance))
+    toolbox.decorate("evaluate", tools.DeltaPenalty(feasible, 1000000, distance))
 
 def configuracionAlgoritmo_Experimento2():
     toolbox.register("mate", tools.cxOnePoint)
     toolbox.register("mutate", tools.mutFlipBit, indpb=0.2)
     toolbox.register("select", tools.selBest)
     toolbox.register("evaluate", evaluate)
-    toolbox.decorate("evaluate", tools.DeltaPenalty(feasible, 100000, distance))
+    toolbox.decorate("evaluate", tools.DeltaPenalty(feasible, 1000000, distance))
 
 def configuracionAlgoritmo_Experimento3():
     toolbox.register("mate", tools.cxUniform, indpb=0.2)
